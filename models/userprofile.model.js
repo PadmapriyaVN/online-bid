@@ -18,7 +18,7 @@ const { DataTypes } = require('sequelize');
  * 
  * @see {@link https://sequelize.org/master/manual/model-basics.html|Sequelize Model Basics}
  */
-const UserProfile = sq.define('UserProfile', {
+const UserProfile = sq.define('user_profiles', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -47,7 +47,7 @@ const UserProfile = sq.define('UserProfile', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
-    lastupdated_date: {
+    updated_date: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },

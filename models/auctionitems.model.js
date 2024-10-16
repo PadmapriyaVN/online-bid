@@ -1,4 +1,4 @@
-
+//Purpose: This model will be used to interact with the auction_items table in the database. The model will define the structure of the table and the data types of the columns. The model will also define any relationships between this table and other tables in the database. This model will be used by the application to perform CRUD operations on the auction_items table. The model will be exported and used in other files to interact with the database.
 const { sq } = require('../config/db');
 const { DataTypes } = require('sequelize');
 
@@ -13,6 +13,7 @@ const { DataTypes } = require('sequelize');
  * @property {Date} bid_start_date - The date when the bidding starts.
  * @property {Date} created_date - The date when the auction item was created. Defaults to the current date and time.
  * @property {Date} lastupdated_date - The date when the auction item was last updated. Defaults to the current date and time.
+ * @property {Date} bid_end_date - The date when the bidding ends.
  */
 const AuctionItems = sq.define('AuctionItems', {
     id: {
@@ -26,14 +27,13 @@ const AuctionItems = sq.define('AuctionItems', {
         unique: true
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING,       
+    },    
+    bid_start_date: {
+        type: DataTypes.DATE,
        
     },
-    starting_bid_amount: {
-        type: DataTypes.FLOAT,
-        allowNull: false,       
-    },
-    bid_start_date: {
+    bid_end_date: {
         type: DataTypes.DATE,
        
     },
@@ -41,10 +41,11 @@ const AuctionItems = sq.define('AuctionItems', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
-    lastupdated_date: {
+    updated_date: {
         type: DataTypes.DATE,
         
     },   
+    
 }, {
     freezeTableName: true,
     tableName: 'auction_items',

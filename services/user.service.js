@@ -18,7 +18,7 @@ async function createUser(first_name, last_name, email, plainTextPassword, recei
       email: email,
       password: hashedPassword,
       lastupdated_date: new Date(),
-      receive_outbid_email: receive_outbid_email||true,
+      receive_outbid_email: receive_outbid_email??true,
     });
 
     return newUser.id;
@@ -26,18 +26,16 @@ async function createUser(first_name, last_name, email, plainTextPassword, recei
 }
 
 async function getAllUsers() {
-    const users = await UserProfile.findAll();
-    return users;
+    return await UserProfile.findAll();
+   
 }
 
 async function getUserById(userId) {
-    const user = await UserProfile.findOne({ where: { id: userId } });
-    return user;
+    return await UserProfile.findOne({ where: { id: userId } });   
 }
 
 async function getUserByEmail(email) {
-    const user = await UserProfile.findOne({ where: { email } });
-    return user;
+    return await UserProfile.findOne({ where: { email } });   
 }
 
 module.exports = { hashPassword, createUser, getAllUsers, getUserById, getUserByEmail };
