@@ -1,4 +1,4 @@
-const AuctionItems = require('../models/auction.model');
+const AuctionItems = require('../models/auctionitems.model');
 
 async function getAllAuctionItems() {
     return await AuctionItems.findAll();
