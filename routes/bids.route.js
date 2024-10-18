@@ -1,3 +1,7 @@
+const express = require('express');
+const router = express.Router();
+const { getAllBidsList, submitBid } = require('../controllers/bids.controller');
+
 // Define bids-related routes
 /**
  * @swagger
@@ -55,6 +59,8 @@
  *       500:
  *         description: Internal server error
  */
-router.get('/list', getAllBids);
+router.get('/list', getAllBidsList);
 
 router.post('/submitBid', submitBid);
+
+module.exports = router;

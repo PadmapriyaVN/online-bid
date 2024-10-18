@@ -5,7 +5,7 @@ async function getAllAuctionItems() {
 }
 
 async function getAuctionItemById(itemId) {
-    return await AuctionItems.findOne({ where: { id: itemId } });
+    return await AuctionItems.findOne({ where: { id: itemId }, raw:true });
 }
 
 async function createAuctionItem(itemData) {
