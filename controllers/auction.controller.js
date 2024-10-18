@@ -4,7 +4,7 @@ exports.getAllAuctionItems = async (req, res) => {
     try {
         const list = await getAllAuctionItems();
 
-        if (user) {
+        if (list) {
             res.json(list);
         } else {
             res.status(404).json({ message: 'No Auction Items present' });
@@ -13,9 +13,9 @@ exports.getAllAuctionItems = async (req, res) => {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });
     }
-  };
+};
 
-  exports.getAuctionItemById = async (req, res) => {
+exports.getAuctionItemById = async (req, res) => {
     const itemId = req.params.id;
 
     try {
@@ -46,11 +46,11 @@ exports.createAuctionItem = async (req, res) => {
 };
 
 exports.updateAuctionItemById = async (req, res) => {
-    const itemId = req.params.id;
+
     const updatedData = req.body;
 
     try {
-        const item = await getAuctionItemById(itemId);
+        const item = await getAuctionItemById(updatedData.id);
 
         if (!item) {
             // If item not found, send 404 response
@@ -58,12 +58,15 @@ exports.updateAuctionItemById = async (req, res) => {
         }
 
         // Update the item with the new data
-        const updatedItem = await updateAuctionItemById(itemId, updatedData);
+        const updatedItem = await updateAuctionItemById(updatedData);
+
+        if (updatedItem === 0) {
+            return res.status(404).json({ error: 'Auction not found or no changes made' });
+        }
 
         // Send updated item as JSON response
-        res.json(updatedItem);
+        res.json({ message: 'Auction data updated successfully' });
 
-       
     } catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Internal server error' });

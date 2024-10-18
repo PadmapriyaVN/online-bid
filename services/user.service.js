@@ -38,4 +38,10 @@ async function getUserByEmail(email) {
     return await UserProfile.findOne({ where: { email } });   
 }
 
-module.exports = { hashPassword, createUser, getAllUsers, getUserById, getUserByEmail };
+async function updateUserById(userId, userData) {
+  userData.updated_date = new Date();
+  const [updatedRows] = await UserProfile.update(userData, { where: { id: userId } });
+  return updatedRows;
+}
+
+module.exports = { hashPassword, createUser, getAllUsers, getUserById, getUserByEmail, updateUserById };

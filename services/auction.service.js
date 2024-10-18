@@ -7,6 +7,7 @@ async function getAllAuctionItems() {
 async function getAuctionItemById(itemId) {
     return await AuctionItems.findOne({ where: { id: itemId } });
 }
+
 async function createAuctionItem(itemData) {
     const newItem = await AuctionItems.create(itemData);
     return newItem.id;

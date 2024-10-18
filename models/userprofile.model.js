@@ -1,4 +1,8 @@
-// Purpose: This model will be used to interact with the user_profiles table in the database. The model will define the structure of the table and the data types of the columns. The model will also define any relationships between this table and other tables in the database. This model will be used by the application to perform CRUD operations on the user_profiles table. The model will be exported and used in other files to interact with the database.
+// Purpose: This model will be used to interact with the user_profiles table in the database. 
+//This model will be used by the application to perform CRUD operations on the user_profiles table. 
+//The model will define the structure of the table and the data types of the columns. 
+//The model will also define any relationships between this table and other tables in the database. 
+//The model will be exported and used in other files to interact with the database.
 const { sq } = require('../config/db');
 const { DataTypes } = require('sequelize');
 
@@ -16,7 +20,7 @@ const { DataTypes } = require('sequelize');
  * @property {Date} lastupdated_date - The date when the user profile was last updated.
  * @property {boolean} receive_outbid_email - Indicates if the user wants to receive outbid emails.
  * 
- * @see {@link https://sequelize.org/master/manual/model-basics.html|Sequelize Model Basics}
+ * 
  */
 const UserProfile = sq.define('user_profiles', {
     id: {

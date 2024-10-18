@@ -4,7 +4,7 @@ const express = require('express');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./swagger');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3001;
 
 
 // Middleware for JSON parsing
