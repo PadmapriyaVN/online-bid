@@ -13,11 +13,11 @@ The Bid Management System is designed to streamline the process of managing bids
 ## Installation
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/bid-management.git
+    git clone https://github.com/PadmapriyaVN/online-bid.git
     ```
 2. Navigate to the project directory:
     ```sh
-    cd bid-management
+    cd online-bid
     ```
 3. Install dependencies:
     ```sh
@@ -29,7 +29,7 @@ The Bid Management System is designed to streamline the process of managing bids
     ```sh
     npm start
     ```
-2. Open your browser and navigate to `http://localhost:3000`.
+2. Open your browser and navigate to `http://localhost:3001`.
 
 ## Contributing
 Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
@@ -37,5 +37,3 @@ Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTIN
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
-For any questions or feedback, please contact [Priya](mailto:priya@example.com).
