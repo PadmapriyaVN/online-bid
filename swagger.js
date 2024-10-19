@@ -31,7 +31,7 @@ const swaggerDefinition = {
 const options = {
     swaggerDefinition,
     // Path to the API docs
-    apis: ['./routes/user.route.js', './routes/auction.route.js'], // Files containing annotations as above
+    apis: ['./routes/user.route.js', './routes/auction.route.js','./routes/bids.route.js'], // Files containing annotations as above
 };
 
 // Initialize swagger-jsdoc

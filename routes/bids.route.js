@@ -26,7 +26,7 @@ const { getAllBidsList, submitBid } = require('../controllers/bids.controller');
  *           type: number
  *           description: The bid for the auction item
  *           example: 150.00
- *         bid_timr:
+ *         bid_time:
  *           type: string
  *           format: date-time
  *           description: The date and time when the bid created
@@ -43,21 +43,39 @@ const { getAllBidsList, submitBid } = require('../controllers/bids.controller');
 
 /**
  * @swagger
- * /bids/list:
+ *  /bids/list:
  *   get:
- *     summary: Get all Bids list
+ *     summary: Get all bids
  *     tags: [Bids]
  *     responses:
  *       200:
- *         description: List of Bids
+ *         description: List of all bids
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
  *                 $ref: '#/components/schemas/Bids'
+ *       404:
+ *         description: No bids found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "No Bids present"
  *       500:
  *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: "Internal server error"
  */
 router.get('/list', getAllBidsList);
 
