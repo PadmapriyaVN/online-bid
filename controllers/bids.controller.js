@@ -41,7 +41,7 @@ exports.submitBid = async (req, res) => {
         if (!auctionItem) {
             return res.status(404).json({ error: 'Auction item not found' });
         }
-console.log('auctionItem', auctionItem);
+
         // Check if the new bid is higher than the current highest bid
         if (bidAmount <= auctionItem.current_highest_bid) {
             return res.status(400).json({ error: 'Your bid must be higher than the current highest bid.' });
